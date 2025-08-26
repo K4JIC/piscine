@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tozaki <tozaki@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/10 16:47:46 by tozaki            #+#    #+#             */
-/*   Updated: 2025/08/11 14:34:45 by tozaki           ###   ########.fr       */
+/*   Updated: 2025/08/25 07:20:01 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@ int	ft_strlen(char *str)
 {
 	int	length;
 
+	length = 0;
 	while (*str != '\0')
 	{
 		length++;

@@ -6,7 +6,7 @@
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 21:45:19 by tozaki            #+#    #+#             */
-/*   Updated: 2025/08/13 19:50:32 by tozaki           ###   ########.fr       */
+/*   Updated: 2025/08/25 07:18:37 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,10 @@ void	print_numbers(int a, int b)
 	write(1, &rt, 1);
 	write(1, &ro, 1);
 	if (a != 98 || b != 99)
+	{
 		write(1, ",", 1);
 		write(1, " ", 1);
+	}
 }
 
 void	ft_print_comb2(void)

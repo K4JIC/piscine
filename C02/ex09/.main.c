@@ -4,7 +4,7 @@ char	*ft_strcapitalize(char *str);
 
 int main(void)
 {
-	char str1[] = "i am ozaki 42tokyo-student";
+	char str1[] = "i am ozaki 42tokYo-student";
 	char str2[] = "==test 9090test \ntest";
 	char *str1after;
 	char *str2after;

@@ -6,7 +6,7 @@
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 21:01:48 by tozaki            #+#    #+#             */
-/*   Updated: 2025/08/13 16:17:08 by tozaki           ###   ########.fr       */
+/*   Updated: 2025/08/18 18:21:46 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,14 @@ int	check_upper(char c)
 
 char	*ft_strlowcase(char *str)
 {
+	char	*tmp;
+
+	tmp = str;
 	while (*str != '\0')
 	{
 		if (check_upper(*str))
 			*str += 32;
 		str++;
 	}
-	return (str);
+	return (tmp);
 }

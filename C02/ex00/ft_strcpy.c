@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tozaki <tozaki@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 15:07:43 by tozaki            #+#    #+#             */
-/*   Updated: 2025/08/11 17:42:04 by tozaki           ###   ########.fr       */
+/*   Updated: 2025/08/18 18:25:49 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strcpy(char *dest, char *src)
 {
+	char	*tmp;
+
+	tmp = dest;
 	while (*src != '\0')
 	{
 		*dest = *src;
@@ -19,5 +22,5 @@ char	*ft_strcpy(char *dest, char *src)
 		src++;
 	}
 	*dest = '\0';
-	return (dest);
+	return (tmp);
 }
