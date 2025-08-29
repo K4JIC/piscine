@@ -6,13 +6,13 @@
 /*   By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 11:57:59 by tozaki            #+#    #+#             */
-/*   Updated: 2025/08/27 23:58:30 by tozaki           ###   ########.fr       */
+/*   Updated: 2025/08/28 13:33:33 by tozaki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-char	*ft_strndup(char *str, int n)
+char	*ft_strndup(char *str, int n) // ft_strdup ではないので注意
 {
 	int		i;
 	char	*res;
@@ -53,6 +53,8 @@ int	ft_count_word(char *str, char *charset)
 	flag = 1;
 	count = 0;
 	i = 0;
+	while (is_charset(str[i], charset))
+		i++;
 	while (str[i])
 	{
 		if (!is_charset(str[i], charset) && flag)
@@ -73,16 +75,18 @@ char	*ft_get_next_word(char *str[], char *charset)
 	int		i;
 
 	i = 0;
-	start = &((*str)[i]);
+	while (is_charset((*str)[i], charset)) // セパレータをスキップ
+		i++;
+	start = &((*str)[i]); // 単語の１文字目のポインタ
 	while ((*str)[i] && !is_charset((*str)[i], charset))
 		i++;
-	end = &((*str)[i]);
+	end = &((*str)[i]); // 単語の末尾の文字のポインタ
 	res = ft_strndup(start, end - start);
 	if (res == NULL)
 		return (NULL);
-	while ((*str)[i] && is_charset((*str)[i], charset))
+	while ((*str)[i] && is_charset((*str)[i], charset)) // セパレータをスキップ
 		i++;
-	(*str) = &(*str)[i];
+	(*str) = &(*str)[i]; // 引数の char *str のポインタを次の単語の先頭に移す
 	return (res);
 }
 
@@ -94,8 +98,6 @@ char	**ft_split(char *str, char *charset)
 
 	words = ft_count_word(str, charset);
 	res = (char **) malloc((words + 1) * sizeof(char *));
-	if (!res)
-		return (NULL);
 	i = 0;
 	while (i < words)
 	{
@@ -106,20 +108,20 @@ char	**ft_split(char *str, char *charset)
 	return (res);
 }
 
-#include <stdio.h>
+// #include <stdio.h>
 
-int main(void)
-{
-	char *str1 = "a/noj--sbai--sdi";
-	char *charset = "-=/";
-	char **sp;
-	int i = 0;
+// int main(void)
+// {
+// 	char *str1 = "--anoj--sbai--sdi";
+// 	char *charset = "-=/";
+// 	char **sp;
+// 	int i = 0;
 
-	sp = ft_split(str1, charset);
-	while (i < 5)
-	{
-		printf("%s\n", sp[i]);
-		i++;
-	}
-	return (0);
-}
+// 	sp = ft_split(str1, charset);
+// 	while (i < 3)
+// 	{
+// 		printf("%s\n", sp[i]);
+// 		i++;
+// 	}
+// 	return (0);
+// }

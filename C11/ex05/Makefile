@@ -5,30 +5,24 @@
 #                                                     +:+ +:+         +:+      #
 #    By: tozaki <tozaki@student.42.jp>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/08/27 22:17:37 by tozaki            #+#    #+#              #
-#    Updated: 2025/08/27 22:42:26 by tozaki           ###   ########.fr        #
+#    Created: 2025/08/28 15:21:04 by tozaki            #+#    #+#              #
+#    Updated: 2025/08/28 20:18:54 by tozaki           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	libft.a
+NAME	=	do-op
 CC		=	cc
 CFLAGS	=	-Wall -Wextra -Werror -I includes
 RM		=	rm -f
 
-SRCDIR	=	srcs
-INCDIR	=	includes
-SRCS	=	$(SRCDIR)/ft_putchar.c	\
-			$(SRCDIR)/ft_swap.c		\
-			$(SRCDIR)/ft_putstr.c		\
-			$(SRCDIR)/ft_strlen.c		\
-			$(SRCDIR)/ft_strcmp.c
+SRCS	=	ft_do-op.c	\
+			calc.c		\
+			utils.c		\
+
 OBJS	=	$(SRCS:.c=.o)
 
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
-
-$(SRCDIR)/%.o: $(SRCDIR)/%.c $(INCDIR)/ft.h
-	$(CC) $(CFLAGS) -I $(INCDIR) -c $< -o $@
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 .PHONY: all
 all: $(NAME)
